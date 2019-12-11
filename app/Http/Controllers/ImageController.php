@@ -12,7 +12,7 @@ class ImageController extends Controller
         //$users = User::all();
         $image = DB::table('image')->get();
 
-    	return view('image.index')->with('image', $image);
+        return view('image.index')->with('image', $image);
     }
     /*
     function details($id){
@@ -28,7 +28,7 @@ class ImageController extends Controller
 */
     function edit(Request $req, $id){
 
-    	//find student form array
+        //find student form array
 
         $image = DB::table('image')->where('image_id', $id)->first();
         return view('image.edit')->with('img', $image);
@@ -95,7 +95,7 @@ class ImageController extends Controller
 
     }
 
-	function update(Request $req, $id){
+    function update(Request $req, $id){
         //$image= new image;
         //$images = DB::table('image')->where('image_id', $id)->first();
         $title = $req->title;
@@ -106,29 +106,29 @@ class ImageController extends Controller
         //$images->description = $req->desc;
         //$images->save();
         //print_r($image);
-    	return redirect()->route('image.man');
+        return redirect()->route('image.man');
     }
-/*
-    function delete($id){
+    /*
+        function delete($id){
 
-    	//find student form array
-        $user = User::find($id);
-    	//$std = ['id'=>'12-111-2', 'username'=>'xyz', 'password'=>'test'];
-    	return view('student.delete')->with('std', $user);
-    }
+            //find student form array
+            $user = User::find($id);
+            //$std = ['id'=>'12-111-2', 'username'=>'xyz', 'password'=>'test'];
+            return view('student.delete')->with('std', $user);
+        }
 
-    function destroy($id){
+        function destroy($id){
 
-    	//delete student from array and send the updated array in userlist
-        $user = User::find($id);
-        if($user->delete()){
-                    return redirect()->route('student.index');
-                }else{
-                    return view('student.delete')->with('std', $user);;
-                }
-    	//return redirect()->route('student.index');
-    }
-*/
+            //delete student from array and send the updated array in userlist
+            $user = User::find($id);
+            if($user->delete()){
+                        return redirect()->route('student.index');
+                    }else{
+                        return view('student.delete')->with('std', $user);;
+                    }
+            //return redirect()->route('student.index');
+        }
+    */
     function add(){
 
         return view('image.addimage');
